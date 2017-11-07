@@ -41,5 +41,32 @@ router.get('/edit/:id', function (req, res){
   })
 })
 
+router.post('/edit/:id', function (req, res){
+  // console.log(req.body);
+  let dataInsert = {
+    username: req.body.username,
+    password: req.body.password,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    status: req.body.status
+  }
+  
+  User.update(dataInsert, {where: {id: req.params.id}})
+  .then(()=>{
+    res.redirect('/users')
+  }).catch(err=>{
+    console.log(err);
+  })
+  
+})
+
+router.get('/delete/:id', function (req, res){
+  User.destroy({where: {id: req.params.id}})
+  .then(()=>{
+    res.redirect('/users')
+  })
+})
+
 
 module.exports = router;

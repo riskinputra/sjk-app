@@ -31,6 +31,14 @@ module.exports = (sequelize, DataTypes) => {
     });
   });
   
+  User.beforeBulkUpdate((user, options) => {
+    // console.log(user.attributes.password);
+    const saltRounds = 10;
+    const myPlaintextPassword = user.attributes.password;
+    return  bcrypt.hash(myPlaintextPassword, saltRounds).then(function(hash) {
+      user.attributes.password = hash
+    });
+  });
   
   return User;
 };
