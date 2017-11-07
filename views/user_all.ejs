@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Data Users</h1>
+    <div class="">
+      <table border="1">
+        <tr>
+          <th>Id</th>
+          <th>username</th>
+          <th>password</th>
+          <th>first_name</th>
+          <th>last_name</th>
+          <th>email</th>
+          <th>status</th>
+          <th>action</th>
+        </tr>
+        <!-- disini table data -->
+        <% users.forEach(user=>{ %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.username %></td>
+            <td><%= user.password %></td>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.status %></td>
+            <td><a href="/users/edit/<%= user.id %>">Edit</a> | <a href="/users/delete/<%= user.id %>">Delete</a></td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>
