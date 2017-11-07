@@ -1,0 +1,206 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: "Quicksand";
+}
+
+/* Header */
+/* Menu*/
+@font-face {
+	font-family: "Lobster";
+	src: url("../../font/Lobster-Regular.ttf");
+}
+@font-face {
+	font-family: "Catamaran";
+	src: url("../../font/Catamaran-Regular.ttf");
+}
+@font-face {
+	font-family: "Quicksand";
+	src: url("../../font/Quicksand-Regular.ttf");
+}
+/* Menu */
+header #menu{
+	background-color: rgba(255, 255, 255, 0.98);
+	padding-bottom: 10px;
+	position: fixed;
+  left: 0;
+  top: 0;
+	width: 100%;
+ 	z-index: 1000;
+}
+header .logo{
+	padding: 10px;
+}
+header .logo img{
+	float: left;
+}
+header .studio{
+	font-family: "Lobster";
+	padding-top: 15px;
+	float: left;
+	color: #007DFF;
+}
+header nav ul li a{
+	text-decoration: none;
+	color: black;
+}
+header a:hover{
+	text-decoration: none;
+}
+header .logo a:link{
+	text-decoration: none;
+}
+header nav ul li{
+	font-family: "Catamaran";
+	list-style: none;
+	float: left;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: bold;
+  margin: 10px 20px;
+}
+header nav{
+	float: right;
+	padding-top: 20px;
+}
+
+/*End Menu*/
+
+/*Cover*/
+header #cover{
+	height: 900px;
+  position: relative;
+  top: -55px;
+  width: 100%;
+  background: url("../../img/header.jpg") no-repeat center bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.cover-content{
+	box-sizing: border-box;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	top: 280px;
+	width: 70%;
+}
+.cover-content h1{
+	font-family: "Quicksand";
+	font-size: 3.7em;
+	font-weight: bold;
+	padding-top: 80px;
+}
+
+.cover-content #more{
+	margin-top: 40%;
+	font-weight: bold;
+}
+
+.cover-content .circle{
+	border-radius: 50%;
+	width: 400px;
+	height: 400px;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+/*End Cover*/
+/*End Header*/
+
+
+/* Service*/
+section#service{
+	background-color: #43C6AC;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	padding: 40px 0 0 0;
+}
+section#service h1{
+	color: #fff;
+}
+section#service #content-service{
+	padding-top: 25px;
+}
+.service-content{
+	color: #fff;
+	padding: 15px 10px;
+}
+/* End Service*/
+/*End Section*/
+
+/* Contacts */
+div#contacts{
+	padding-top: 10%;
+}
+
+div#sub-title{
+	padding-bottom: 20px;
+}
+div#add{
+	padding-bottom: 20px:
+}
+div#show{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+footer{
+	text-align: center;
+	color: #fff;
+	padding: 40px;
+	background-color: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+/* Extra small devices (portrait phones, less than 576px)
+   No media query since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+	body p{
+			font-size: 16px;
+	}
+	header .logo{
+		position: relative;
+		width: 50%;
+	}
+
+	header nav ul li a{
+		font-size: 12px;
+	}
+	header nav{
+		align-items: center;
+		text-align: center;
+	}
+	.cover-content h1{
+		font-size: 2.8em;
+	}
+	.cover-content .circle{
+		width: 300px;
+		height: 300px;
+		text-align: center;
+	}
+
+	h3.service-content{
+		font-size: 20px;
+	}
+	p.service-content{
+		font-size: 16px;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
