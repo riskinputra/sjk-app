@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/views'));
-// app.use('/assets', express.static('views'));
 
 app.set('views', './views') // specify the views directory
 app.set('view engine', 'ejs') // register the template engine
