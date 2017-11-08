@@ -6,6 +6,32 @@
   </head>
   <body>
     <h1>di SJK</h1>
-    tampil table logs surat jalan yang telah dibuat descending createdAt, crud
+    <div class="">
+      <table border="1">
+        <tr>
+          <th>id</th>
+          <th>Task</th>
+          <th>Driver</th>
+          <th>Vehicle Details</th>
+          <th>Costumer Name</th>
+          <th>Destination</th>
+          <th>Map</th>
+          <th>Action</th>
+        </tr>
+        <!-- looping data -->
+        <% sjks.forEach(sjk=>{ %>
+          <tr>
+            <td><%= sjk.id %></td>
+            <td><%= sjk.task %></td>
+            <td><%= sjk.User.username %>, <%= sjk.User.first_name %></td>
+            <td><%= sjk.Vehicle.plat_no %>, KM <%= sjk.Vehicle.km %></td>
+            <td><%= sjk.Customer.name %></td>
+            <td><%= sjk.Customer.address %></td>
+            <td><a href="<%= sjk.Customer.map %>">LINK</a></td>
+            <td><a href="/sjk/edit/<%= sjk.id %>">Edit</a> | <a href="/sjk/delete/<%= sjk.id %>">Delete</a></td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
   </body>
 </html>

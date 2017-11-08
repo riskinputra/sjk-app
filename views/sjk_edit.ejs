@@ -11,23 +11,29 @@
       <br>Vehicle: 
       <select class="" name="VehicleId">
         <% vehicles.forEach(vehicle=>{ %>
-          <option value="<%= vehicle.id %>"><%= vehicle.plat_no %>, <%= vehicle.type %>, KM: <%= vehicle.km %></option>
+          <option value="<%= vehicle.id %>" 
+            <% if(vehicle.id == one.Vehicle.id) { 'selected="selected"' } %>
+            ><%= vehicle.plat_no %>, <%= vehicle.type %>, KM: <%= vehicle.km %></option>
         <% }) %>
       </select>
       
       <br>Driver: <select class="" name="UserId">
         <% drivers.forEach(driver=>{ %>
-          <option value="<%= driver.id %>"><%= driver.username %></option>
+          <option value="<%= driver.id %>"
+            <% if(driver.id == one.User.id) { 'selected="selected"' } %>
+            ><%= driver.username %></option>
         <% }) %>
       </select>
       
       <br>Costumer: <select class="" name="CustomerId">
         <% customers.forEach(customer=>{ %>
-          <option value="<%= customer.id %>"><%= customer.name %> <%= customer.address %></option>
+          <option value="<%= customer.id %>" 
+            <% if(customer.id == one.Customer.id) { 'selected="selected"' } %>
+            ><%= customer.name %> <%= customer.address %></option>
         <% }) %>
       </select>
       
-      <br>Task: <textarea name="task" rows="8" cols="80"></textarea>
+      <br>Task: <textarea name="task" rows="8" cols="80"><%= one.task %></textarea>
       
       <br><input type="submit" name="" value="SUBMIT">
     </form>
