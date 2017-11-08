@@ -6,6 +6,7 @@ const bodyParser  = require('body-parser');
 const index   = require('./routers/index');
 const user    = require('./routers/user');
 const login   = require('./routers/login');
+const sjk     = require('./routers/sjk');
 const vehicle    = require('./routers/vehicle');
 const customer    = require('./routers/customer');
 
@@ -30,6 +31,9 @@ app.use('/login', login)
 
 // ------------ VEHICLE -------------
 app.use('/vehicles', vehicle);
+
+// ------------ VEHICLE -------------
+app.use('/sjk', sjk)
 
 // ------------ CUSTOMER -------------
 app.use('/customers', customer);

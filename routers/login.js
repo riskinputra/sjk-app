@@ -9,7 +9,6 @@ router.get('/', (req, res)=>{
 })
 
 router.post('/', (req, res)=>{
-  // console.log(req.body);
   User.findOne({where: {username: req.body.username}})
   .then(user=>{
     bcrypt.compare(req.body.password, user.password)
@@ -17,7 +16,6 @@ router.post('/', (req, res)=>{
       if(result){
         req.session.loggedIn = true
         res.redirect('/users')
-        // res.redirect('/assign')
       }else{
         res.render('login', {title:"Login"})
       }

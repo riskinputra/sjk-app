@@ -14,13 +14,14 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     status: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  
+  // Class Method
+  User.associate = function (models) {
+    // ...associate the models
+    User.belongsToMany(models.Vehicle, {through: 'SuratJalan'})
+  };
+  
   
   //bcrypt
   User.beforeCreate((user, options) => {
@@ -32,7 +33,6 @@ module.exports = (sequelize, DataTypes) => {
   });
   
   User.beforeBulkUpdate((user, options) => {
-    // console.log(user.attributes.password);
     const saltRounds = 10;
     const myPlaintextPassword = user.attributes.password;
     return  bcrypt.hash(myPlaintextPassword, saltRounds).then(function(hash) {

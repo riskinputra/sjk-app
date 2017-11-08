@@ -31,7 +31,11 @@ router.post('/add', cekLogin, function (req, res) {
   .then(()=>{
     res.redirect('/users')
   }).catch(err=>{
-    console.log(err);
+    console.log(err.message)
+    res.render('user_add', {
+      title: 'User Add',
+      msg: err.message
+    })
   })
 
 })
@@ -44,7 +48,6 @@ router.get('/edit/:id', cekLogin, function (req, res){
 })
 
 router.post('/edit/:id', cekLogin, function (req, res){
-  // console.log(req.body);
   let dataInsert = {
     username: req.body.username,
     password: req.body.password,
