@@ -18,9 +18,9 @@
       <div class="col-md-12 col-xs-12" id="show">
         <form method="post">
           <input type="hidden" name="id" value="<%=rows.id%>">
-          <input type="text" name="plat_no" placeholder="Masukkan Plat No" style="text-transform: uppercase" value="<%= rows.plat_no %>">
-          <input type="text" name="type" placeholder="Masukkan Tipe Kendaraan" style="text-transform: uppercase" value="<%= rows.type %>">
-          <input type="text" name="km" placeholder="Masukkan KM" style="text-transform: uppercase" value="<%= rows.km %>">
+          <input type="text" name="plat_no" placeholder="Masukkan Plat No" style="text-transform: capitalize" value="<%= rows.plat_no %>">
+          <input type="text" name="type" placeholder="Masukkan Tipe Kendaraan" style="text-transform: capitalize" value="<%= rows.type %>">
+          <input type="text" name="km" placeholder="Masukkan KM" value="<%= rows.km %>">
           <input type="submit" class="btn btn-primary" value="Submit">
         </form>
       </div>
