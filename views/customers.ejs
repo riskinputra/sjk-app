@@ -24,7 +24,6 @@
               <th class="text-center">ID</th>
               <th class="text-center">Name</th>
               <th class="text-center">Address</th>
-              <th class="text-center">Map</th>
               <th class="text-center">Action</th>
             </tr>
           </thead>
@@ -34,9 +33,8 @@
             <tr>
               <td class="text-center"><%= no %></td>
               <td class="text-center"><%= data.id %></td>
-              <td style="text-transform: capitalize"><%= data.name %></td>
-              <td style="text-transform: capitalize"><%= data.address %></td>
-              <td ><%= data.map %></td>
+              <td style="text-transform: capitalize" nowrap><%= data.name %></td>
+              <td style="text-transform: capitalize"><a href="<%= data.map %>" target="_blank" ><%= data.address %></a></td>
               <td nowrap class="text-center"><a href="/customers/edit/<%= data.id %>">Edit</a> || <a href="/customers/delete/<%= data.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
             </tr>
           </tbody>

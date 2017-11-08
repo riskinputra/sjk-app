@@ -16,6 +16,11 @@
 
 
       <div class="col-md-12 col-xs-12" id="show">
+        <% if (msg){ %>
+        <div class="alert alert-danger">
+          <%= msg %>
+        </div>
+        <%}%>
         <form class="" action="" method="post">
           <table class="table">
             <tr>
