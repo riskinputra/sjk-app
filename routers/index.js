@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', function (req, res) {
-  res.render('index', {title: 'Home'})
+  // console.log(req.session.loggedIn);
+  res.render('index', {title: 'Home', login:req.session.loggedIn})
 })
 
 
