@@ -15,7 +15,6 @@ router.get('/', cekLogin, function (req, res) {
     include: [Vehicle, User, Customer]
   })
   .then(sjks=>{
-    console.log(req.query.email)
     res.render('sjk',{sjks: sjks, msg:req.query.email})
   })
 })
