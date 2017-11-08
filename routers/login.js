@@ -15,7 +15,7 @@ router.post('/', (req, res)=>{
     .then(result=>{
       if(result){
         req.session.loggedIn = true
-        res.redirect('/users')
+        res.redirect('/')
       }else{
         res.render('login', {title:"Login"})
       }

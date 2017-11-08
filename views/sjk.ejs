@@ -17,6 +17,7 @@
           <th>Destination</th>
           <th>Map</th>
           <th>Action</th>
+          <th>Send Email</th>
         </tr>
         <!-- looping data -->
         <% sjks.forEach(sjk=>{ %>
@@ -29,6 +30,7 @@
             <td><%= sjk.Customer.address %></td>
             <td><a href="<%= sjk.Customer.map %>">LINK</a></td>
             <td><a href="/sjk/edit/<%= sjk.id %>">Edit</a> | <a href="/sjk/delete/<%= sjk.id %>">Delete</a></td>
+            <td><a href="/sjk/sendemail/<%= sjk.id %>">Send Email</a></td>
           </tr>
         <% }) %>
       </table>

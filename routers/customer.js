@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models/');
 
-router.get('/', (req, res) => {
+//require helper
+const cekLogin = require('../helper/ceklogin')
+
+router.get('/', cekLogin, (req, res) => {
   Model.Customer.findAll().then(dataCustomer => {
       let dataC = {
         title: 'Customer',
@@ -15,14 +18,13 @@ router.get('/', (req, res) => {
     })
 })
 
-
-router.get('/add', (req, res) => {
+router.get('/add', cekLogin, (req, res) => {
   res.render('customers-add', {
     title: 'Customers Add'
   })
 })
 
-router.post('/add', (req, res) => {
+router.post('/add', cekLogin, (req, res) => {
   Model.Customer.create(req.body).then(dataCustomer => {
       res.redirect('/customers');
     })
@@ -31,7 +33,7 @@ router.post('/add', (req, res) => {
     })
 })
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', cekLogin, (req, res) => {
   Model.Customer.findById(req.params.id).then(dataCustomer => {
       let dataC = {
         title: 'Customers Edit',
@@ -44,7 +46,7 @@ router.get('/edit/:id', (req, res) => {
     })
 })
 
-router.post('/edit/:id', (req, res) => {
+router.post('/edit/:id', cekLogin, (req, res) => {
   Model.Customer.update(req.body, {
       where: {
         id: req.body.id
@@ -57,7 +59,7 @@ router.post('/edit/:id', (req, res) => {
     })
 })
 
-router.get('/delete/:id', (req, res) => {
+router.get('/delete/:id', cekLogin, (req, res) => {
   Model.Customer.destroy({
       where: {
         id: req.params.id
