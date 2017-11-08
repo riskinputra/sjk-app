@@ -6,7 +6,6 @@ const bodyParser  = require('body-parser');
 const index   = require('./routers/index');
 const user    = require('./routers/user');
 const login   = require('./routers/login');
-const vehicle = require('./routers/vehicle');
 const sjk     = require('./routers/sjk');
 const vehicle    = require('./routers/vehicle');
 const customer    = require('./routers/customer');
