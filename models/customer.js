@@ -4,12 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     address: DataTypes.STRING,
     map: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  
+  // Class Method
+  Customer.associate = function (models) {
+    // ...associate the models
+    // Customer.belongsTo(models.SuratJalan)
+  };
+  
   return Customer;
 };
