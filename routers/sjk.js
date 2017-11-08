@@ -12,7 +12,7 @@ router.get('/', function (req, res) {
   })
   .then(sjks=>{
     // console.log(sjks[0])
-    res.render('sjk',{sjks: sjks})
+    res.render('sjk',{sjks: sjks, title:"Surat Jalan Kendaraan"})
   })
 })
 
@@ -24,10 +24,10 @@ router.get('/add', function (req, res) {
     Vehicle.findAll(),
     Customer.findAll()
   ]
-  
+
   Promise.all(arrPromise)
   .then(values=>{
-    res.render('sjk_add',{drivers: values[0], vehicles: values[1], customers: values[2]})
+    res.render('sjk_add',{drivers: values[0], vehicles: values[1], customers: values[2], title:"Add Surat Jalan Kendaraa"})
   })
 })
 
@@ -52,14 +52,15 @@ router.get('/edit/:id', function (req, res){
       where: {id: req.params.id}
     })
   ]
-  
+
   Promise.all(arrPromise)
   .then(values=>{
     res.render('sjk_edit',{
-      drivers: values[0], 
-      vehicles: values[1], 
-      customers: values[2], 
-      one: values[3]
+      drivers: values[0],
+      vehicles: values[1],
+      customers: values[2],
+      one: values[3],
+      title: 'Edit Surat Jalan Kendaraan'
     })
   })
 })

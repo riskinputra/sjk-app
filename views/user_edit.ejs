@@ -1,24 +1,85 @@
+<%- include partial/head %>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>USER EDIT</h1>
-    <form class="" action="" method="post">
-      <br>Username: <input type="text" name="username" value="<%= user.username %>" placeholder="username">
-      <br>Password: <input type="password" name="password" value="<%= user.password %>" placeholder="password">
-      <br>First Name: <input type="text" name="first_name" value="<%= user.first_name %>" placeholder="first_name">
-      <br>Last Name: <input type="text" name="last_name" value="<%= user.last_name %>" placeholder="last_name">
-      <br>Email: <input type="text" name="email" value="<%= user.email %>" placeholder="email">
-      <br>Status:
-      <select class="" name="status">
-        <option value="admin" selected="<% if(user.status=='admin'){'selected'} %>">Admin</option>
-        <option value="driver" selected="<% if(user.status=='driver'){'selected'} %>">Driver</option>
-      </select>
-      <br><input type="submit" name="" value="EDIT USER">
-    </form>
-  </body>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Menu -->
+    <%- include partial/menu %>
+  </header>
+
+  <div class="container" >
+    <div class="row" id="contacts">
+
+      <div class="col-md-12 col-xs-12" id="sub-title">
+        <h1 class="text-center"><%= title %></h1>
+      </div>
+
+
+      <div class="col-md-12 col-xs-12" id="show">
+        <form class="" action="" method="post">
+          <table class="table">
+            <tr>
+              <td align="right">Username : </td>
+              <input type="hidden" name="id" value="<%=user.id%>">
+              <td><input type="text" class="form-control" name="username" placeholder="Masukkan Username" value="<%= user.username %>"></td>
+            </tr>
+            <tr>
+              <td align="right">Password : </td>
+              <td><input type="password" class="form-control" name="password" value="<%= user.password %>" placeholder="Masukkan Password" ></td>
+            </tr>
+            <tr>
+              <td align="right">First Name : </td>
+              <td>
+                <input type="text" class="form-control" name="first_name" value="<%= user.first_name %>" placeholder="Masukkan First Name" style="text-transform: capitalize">
+              </td>
+            </tr>
+            <tr>
+              <td align="right">Last Name : </td>
+              <td>
+                <input type="text" class="form-control" name="last_name" value="<%= user.last_name %>" placeholder="Masukkan Last Name" style="text-transform: capitalize">
+              </td>
+            </tr>
+            <tr>
+              <td align="right">Email : </td>
+              <td>
+                <input type="text" class="form-control" name="email" value="<%= user.email %>"placeholder="Masukkan Email">
+              </td>
+            </tr>
+            <tr>
+              <td align="right">Status : </td>
+              <td>
+                <select class="" name="status">
+                  <option value="" selected disabled>--Selected--</option>
+                  <option value="admin" selected="<% if(user.status=='admin'){'selected'} %>">Admin</option>
+                  <option value="driver" selected="<% if(user.status=='driver'){'selected'} %>">Driver</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center" colspan="2">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <a class="btn btn-danger" href="/users">Back</a>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Header -->
+
+  <section id="service">
+
+  </section>
+
+  <footer>
+    Copyright &copy 2017 - Faris n' Riski
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="/assets/js/jquery-3.2.1.slim.min.js"></script>
+  <script src="/assets/js/popper.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+</body>
+
 </html>
