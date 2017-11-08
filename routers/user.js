@@ -31,7 +31,11 @@ router.post('/add', cekLogin, function (req, res) {
   .then(()=>{
     res.redirect('/users')
   }).catch(err=>{
-    console.log(err);
+    console.log(err.message)
+    res.render('user_add', {
+      title: 'User Add',
+      msg: err.message
+    })
   })
 
 })
