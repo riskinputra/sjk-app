@@ -14,16 +14,34 @@ function sendEmail(dest, rawMsg, cb){
       pass: password
     }
   })
-  
+
   let subject = `[ORDER ID:${rawMsg.id} CUSTOMER: ${rawMsg.Customer.name}]`
   let messages = `
-  <h1>SURAT JALAN NO:${rawMsg.id}</h1>
-  Details:<br>
-  <br>No: ${rawMsg.id}
-  <br>Customer Name: ${rawMsg.Customer.name}
-  <br>Task: ${rawMsg.task}
-  <br>Destination: ${rawMsg.Customer.address}
-  <br>Location: <a href='${rawMsg.Customer.map}'>${rawMsg.Customer.map}</a>`;
+  <table style="border:1px solid black">
+    <thead>
+      <tr>
+        <th colspan="2">SURAT JALAN NO:${rawMsg.id}</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td align="right">No : </td>
+        <td>${rawMsg.id}</td>
+      </tr>
+      <tr>
+        <td align="right" nowrap>Customer Name : </td>
+        <td style="text-transform: capitalize">${rawMsg.Customer.name}</td>
+      </tr>
+      <tr>
+        <td align="right">Task : </td>
+        <td style="text-transform: capitalize">${rawMsg.task}</td>
+      </tr>
+      <tr>
+        <td align="right" style="text-transform: capitalize">Destination : </td>
+        <td><a href='${rawMsg.Customer.map}'>${rawMsg.Customer.address}</a></td>
+      </tr>
+    </tbody>
+  <table>`;
 
   var mailOptions = {
     from: username,
@@ -31,7 +49,7 @@ function sendEmail(dest, rawMsg, cb){
     subject: subject,
     html: messages
   };
-  
+
   // console.log(mailOptions);
   // cb(200)
 
@@ -45,7 +63,7 @@ function sendEmail(dest, rawMsg, cb){
       cb(info.response)
     }
   })
-  
+
 }
 
 module.exports = sendEmail;

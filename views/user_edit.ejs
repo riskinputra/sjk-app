@@ -50,8 +50,15 @@
               <td>
                 <select class="" name="status">
                   <option value="" selected disabled>--Selected--</option>
-                  <option value="admin" selected="<% if(user.status=='admin'){'selected'} %>">Admin</option>
-                  <option value="driver" selected="<% if(user.status=='driver'){'selected'} %>">Driver</option>
+                  <%if(user.status=='admin'){%>
+                    <option value="admin" selected>
+                      Admin
+                    </option>
+                  <%}else if(user.status=='driver'){%>
+                    <option value="driver" selected>
+                      Driver
+                    </option>
+                  <%}%>
                 </select>
               </td>
             </tr>
