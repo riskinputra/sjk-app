@@ -25,6 +25,7 @@ router.get('/add', cekLogin, (req, res) => {
 })
 
 router.post('/add', cekLogin, (req, res) => {
+  console.log(req.body.plat_no);
   Model.Vehicle.create(req.body).then(dataVehicle => {
       res.redirect('/vehicles');
     })

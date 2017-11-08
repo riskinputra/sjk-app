@@ -14,7 +14,7 @@ router.get('/', cekLogin, function (req, res) {
 })
 
 router.get('/add', cekLogin, function (req, res) {
-  res.render('user_add', {title: 'User Add'})
+  res.render('user_add', {title: 'User Add', msg:null})
 })
 
 router.post('/add', cekLogin, function (req, res) {

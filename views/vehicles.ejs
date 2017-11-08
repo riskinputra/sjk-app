@@ -35,7 +35,7 @@
               <td class="text-center"><%= no %></td>
               <td class="text-center"><%= data.id %></td>
               <td class="text-center" style="text-transform: uppercase"><%= data.plat_no %></td>
-              <td style="text-transform: uppercase"><%= data.type %></td>
+              <td style="text-transform: capitalize"><%= data.type %></td>
               <td><%= data.km %></td>
               <td class="text-center"><a href="/vehicles/edit/<%= data.id %>">Edit</a> || <a href="/vehicles/delete/<%= data.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
             </tr>
