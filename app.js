@@ -7,6 +7,7 @@ const index   = require('./routers/index');
 const user    = require('./routers/user');
 const login   = require('./routers/login');
 const vehicle    = require('./routers/vehicle');
+const customer    = require('./routers/customer');
 
 const app = express();
 
@@ -29,6 +30,9 @@ app.use('/login', login)
 
 // ------------ VEHICLE -------------
 app.use('/vehicles', vehicle);
+
+// ------------ CUSTOMER -------------
+app.use('/customers', customer);
 
 app.listen(3000, function() {
   console.log('Sudah Nyambung ....!!!');

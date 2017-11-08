@@ -12,7 +12,7 @@
 
       <div class="col-md-12 col-xs-12" id="sub-title">
         <h1 class="text-center"><%= title %></h1>
-        <p class="text-center"><a href="/users/add">Add User</a></p>
+        <p class="text-center"><a href="/customers/add">Add Vehicle</a></p>
       </div>
 
 
@@ -22,28 +22,22 @@
             <tr>
               <th class="text-center">No</th>
               <th class="text-center">ID</th>
-              <th class="text-center">Username</th>
-              <th class="text-center">Password</th>
-              <th class="text-center">First Name</th>
-              <th class="text-center">Last Name</th>
-              <th class="text-center">Email</th>
-              <th class="text-center">Status</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Address</th>
+              <th class="text-center">Map</th>
               <th class="text-center">Action</th>
             </tr>
           </thead>
           <% let no = 1%>
-          <% users.forEach(user=>{ %>
+          <% rows.forEach(data=>{%>
           <tbody>
             <tr>
               <td class="text-center"><%= no %></td>
-              <td class="text-center"><%= user.id %></td>
-              <td ><%= user.username %></td>
-              <td ><%= user.password %>/td>
-              <td><%= user.first_name %></td>
-              <td><%= user.last_name %></td>
-              <td><%= user.email %></td>
-              <td><%= user.status %></td>
-              <td class="text-center"><a href="/users/edit/<%= user.id %>">Edit</a> || <a href="/users/delete/<%= user.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+              <td class="text-center"><%= data.id %></td>
+              <td class="text-center"><%= data.name %></td>
+              <td style="text-transform: uppercase"><%= data.address %></td>
+              <td ><%= data.map %></td>
+              <td nowrap class="text-center"><a href="/customers/edit/<%= data.id %>">Edit</a> || <a href="/customers/delete/<%= data.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
             </tr>
           </tbody>
           <% no++ })  %>
