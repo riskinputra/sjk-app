@@ -24,7 +24,7 @@
                 <select class="" name="VehicleId" style="text-transform: uppercase">
                   <option value="" selected disabled>--Select--</option>
                   <% vehicles.forEach(vehicle=>{ %>
-                    <option value="<%= vehicle.id %>" ><%= vehicle.plat_no %>, <%= vehicle.type %>, KM: <%= vehicle.km %></option>
+                    <option value="<%= vehicle.id %>" ><%= vehicle.plat_no %></option>
                   <% }) %>
                 </select>
               </td>
