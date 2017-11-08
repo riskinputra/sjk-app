@@ -5,11 +5,19 @@ const User = Model.User;
 const bcrypt = require('bcrypt');
 
 router.get('/', (req, res)=>{
-  res.render('login', {title:"Login"})
+  if(req.session.loggedIn){
+    res.redirect('/')
+  } else {
+    res.render('login', {title:"Login"})
+    
+  }
 })
 
 router.post('/', (req, res)=>{
-  User.findOne({where: {username: req.body.username}})
+  User.findOne({where: {
+    username: req.body.username,
+    status: 'admin'
+  }})
   .then(user=>{
     bcrypt.compare(req.body.password, user.password)
     .then(result=>{

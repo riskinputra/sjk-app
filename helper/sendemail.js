@@ -15,14 +15,13 @@ function sendEmail(dest, rawMsg, cb){
     }
   })
   
-  // console.log(rawMsg)
   let subject = `[ORDER ID:${rawMsg.id} CUSTOMER: ${rawMsg.Customer.name}]`
   let messages = `
   <h1>SURAT JALAN NO:${rawMsg.id}</h1>
   Details:<br>
   <br>No: ${rawMsg.id}
   <br>Customer Name: ${rawMsg.Customer.name}
-  <br>Task: ${rawMsg.id}
+  <br>Task: ${rawMsg.task}
   <br>Destination: ${rawMsg.Customer.address}
   <br>Location: <a href='${rawMsg.Customer.map}'>${rawMsg.Customer.map}</a>`;
 
@@ -34,9 +33,9 @@ function sendEmail(dest, rawMsg, cb){
   };
   
   // console.log(mailOptions);
-  
-  // return mailOptions;
+  // cb(200)
 
+  //send mail here
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       console.log(error);
@@ -48,7 +47,5 @@ function sendEmail(dest, rawMsg, cb){
   })
   
 }
-
-// console.log(sendEmail('capung@gmail.com', 'halooo'))
 
 module.exports = sendEmail;
