@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models/');
 
-router.get('/', (req, res) => {
+//require helper
+const cekLogin = require('../helper/ceklogin')
+
+router.get('/', cekLogin, (req, res) => {
   Model.Vehicle.findAll().then(dataVehicle => {
       let dataV = {
         title: 'Vehicle',
@@ -15,13 +18,13 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/add', (req, res) => {
+router.get('/add', cekLogin, (req, res) => {
   res.render('vehicles-add', {
     title: 'Vehicles Add'
   })
 })
 
-router.post('/add', (req, res) => {
+router.post('/add', cekLogin, (req, res) => {
   Model.Vehicle.create(req.body).then(dataVehicle => {
       res.redirect('/vehicles');
     })
@@ -30,7 +33,7 @@ router.post('/add', (req, res) => {
     })
 })
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', cekLogin, (req, res) => {
   Model.Vehicle.findById(req.params.id).then(dataVehicle => {
       let dataV = {
         title: 'Vehicle Edit',
@@ -43,7 +46,7 @@ router.get('/edit/:id', (req, res) => {
     })
 })
 
-router.post('/edit/:id', (req, res) => {
+router.post('/edit/:id', cekLogin, (req, res) => {
   Model.Vehicle.update(req.body, {
       where: {
         id: req.body.id
@@ -56,7 +59,7 @@ router.post('/edit/:id', (req, res) => {
     })
 })
 
-router.get('/delete/:id', (req, res) => {
+router.get('/delete/:id', cekLogin, (req, res) => {
   Model.Vehicle.destroy({
       where: {
         id: req.params.id

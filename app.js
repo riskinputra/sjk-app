@@ -6,7 +6,8 @@ const bodyParser  = require('body-parser');
 const index   = require('./routers/index');
 const user    = require('./routers/user');
 const login   = require('./routers/login');
-const vehicle    = require('./routers/vehicle');
+const vehicle = require('./routers/vehicle');
+const sjk     = require('./routers/sjk');
 
 const app = express();
 
@@ -30,6 +31,9 @@ app.use('/login', login)
 
 // ------------ VEHICLE -------------
 app.use('/vehicles', vehicle);
+
+// ------------ VEHICLE -------------
+app.use('/sjk', sjk)
 
 app.listen(3000, function() {
   console.log('Sudah Nyambung ....!!!');

@@ -44,7 +44,6 @@ router.get('/edit/:id', cekLogin, function (req, res){
 })
 
 router.post('/edit/:id', cekLogin, function (req, res){
-  // console.log(req.body);
   let dataInsert = {
     username: req.body.username,
     password: req.body.password,
