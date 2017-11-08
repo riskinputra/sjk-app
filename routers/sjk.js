@@ -15,7 +15,7 @@ router.get('/', cekLogin, function (req, res) {
     include: [Vehicle, User, Customer]
   })
   .then(sjks=>{
-    res.render('sjk',{sjks: sjks, msg:req.query.email})
+    res.render('sjk',{sjks: sjks, title:"Surat Jalan Kendaraan", msg:req.query.email})
   })
 })
 
@@ -27,10 +27,10 @@ router.get('/add', cekLogin, function (req, res) {
     Vehicle.findAll(),
     Customer.findAll()
   ]
-  
+
   Promise.all(arrPromise)
   .then(values=>{
-    res.render('sjk_add',{drivers: values[0], vehicles: values[1], customers: values[2]})
+    res.render('sjk_add',{drivers: values[0], vehicles: values[1], customers: values[2], title:"Add Surat Jalan Kendaraa"})
   })
 })
 
@@ -55,14 +55,15 @@ router.get('/edit/:id', cekLogin, function (req, res){
       where: {id: req.params.id}
     })
   ]
-  
+
   Promise.all(arrPromise)
   .then(values=>{
     res.render('sjk_edit',{
-      drivers: values[0], 
-      vehicles: values[1], 
-      customers: values[2], 
-      one: values[3]
+      drivers: values[0],
+      vehicles: values[1],
+      customers: values[2],
+      one: values[3],
+      title: 'Edit Surat Jalan Kendaraan'
     })
   })
 })
@@ -99,7 +100,7 @@ router.get('/sendemail/:id', cekLogin, function (req, res) {
   .then(sjks=>{
     let dest = sjks[0].User.email
     let rawMsg = sjks[0]
-    
+
     // send email here
     sendEmail(dest, rawMsg, (info)=>{
       let success = info.match(/ok/gi).length;
@@ -112,7 +113,7 @@ router.get('/sendemail/:id', cekLogin, function (req, res) {
         // res.render('sjk',{sjks: sjks, msg: info})
       }
     })
-    
+
   })
 })
 

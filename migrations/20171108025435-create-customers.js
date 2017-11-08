@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       map: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
