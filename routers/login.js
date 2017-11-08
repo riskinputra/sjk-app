@@ -5,7 +5,7 @@ const User = Model.User;
 const bcrypt = require('bcrypt');
 
 router.get('/', (req, res)=>{
-  res.render('login')
+  res.render('login', {title:"Login"})
 })
 
 router.post('/', (req, res)=>{
@@ -17,16 +17,16 @@ router.post('/', (req, res)=>{
         req.session.loggedIn = true
         res.redirect('/users')
       }else{
-        res.render('login')
+        res.render('login', {title:"Login"})
       }
-      
+
     })
-    
+
   }).catch(err=>{
-    res.render('login')
-    
+    res.render('login', {title:"Login"})
+
   })
-  
+
 })
 
 module.exports = router;

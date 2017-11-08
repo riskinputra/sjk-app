@@ -19,21 +19,22 @@
         <form method="post">
           <table class="table">
             <tr>
-              <td align="right">Plat No : </td>
-              <td><input type="text" name="plat_no" class="form-control" placeholder="Masukkan Plat No" style="text-transform: uppercase"></td>
+              <input type="hidden" name="id" value="<%=rows.id%>">
+              <td align="right">Name : </td>
+              <td><input type="text" name="name" class="form-control" placeholder="Masukkan Nama Customer" style="text-transform: uppercase" value="<%=rows.name%>"></td>
             </tr>
             <tr>
-              <td align="right">Type : </td>
-              <td>  <input type="text" name="type" class="form-control" placeholder="Masukkan Tipe Kendaraan" style="text-transform: uppercase"></td>
+              <td align="right">Address : </td>
+              <td>  <input type="text" name="address" class="form-control" placeholder="Masukkan Address" style="text-transform: uppercase" value="<%=rows.address%>"></td>
             </tr>
             <tr>
-              <td align="right">KM : </td>
-              <td><input type="text" name="km" class="form-control" placeholder="Masukkan KM" style="text-transform: uppercase"></td>
+              <td align="right">Map : </td>
+              <td><input type="text" name="map" class="form-control" placeholder="Masukkan Map" style="text-transform: uppercase" value="<%=rows.map%>"></td>
             </tr>
             <tr>
-              <td class="text-center" colspan="2">
+              <td class="text-center" colspan="2" >
                 <input type="submit" class="btn btn-primary" value="Submit">
-                <a class="btn btn-danger" href="/vehicles">Back</a>
+                <a class="btn btn-danger" href="/customers">Back</a>
               </td>
             </tr>
           </table>

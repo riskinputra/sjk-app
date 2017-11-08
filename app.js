@@ -8,6 +8,8 @@ const user    = require('./routers/user');
 const login   = require('./routers/login');
 const vehicle = require('./routers/vehicle');
 const sjk     = require('./routers/sjk');
+const vehicle    = require('./routers/vehicle');
+const customer    = require('./routers/customer');
 
 const app = express();
 
@@ -18,7 +20,6 @@ app.use(session({
 }))
 
 app.use(express.static(__dirname + '/views'));
-// app.use('/assets', express.static('views'));
 
 app.set('views', './views') // specify the views directory
 app.set('view engine', 'ejs') // register the template engine
@@ -34,6 +35,9 @@ app.use('/vehicles', vehicle);
 
 // ------------ VEHICLE -------------
 app.use('/sjk', sjk)
+
+// ------------ CUSTOMER -------------
+app.use('/customers', customer);
 
 app.listen(3000, function() {
   console.log('Sudah Nyambung ....!!!');
