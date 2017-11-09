@@ -4,12 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     plat_no: DataTypes.STRING,
     km: DataTypes.INTEGER,
     type: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  
+  // Class Method
+  Vehicle.associate = function (models) {
+    // ...associate the models
+    Vehicle.belongsToMany(models.User, {through: 'SuratJalan'})
+  };
+  
   return Vehicle;
 };

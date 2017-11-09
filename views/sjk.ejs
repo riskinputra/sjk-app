@@ -1,0 +1,71 @@
+<%- include partial/head %>
+
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Menu -->
+    <%- include partial/menu %>
+  </header>
+
+  <div class="container" >
+    <div class="row" id="contacts">
+
+      <div class="col-md-12 col-xs-12" id="sub-title">
+        <h1 class="text-center"><%= title %></h1>
+        <p class="text-center"><a href="/sjk/add">Add SJK</a></p>
+      </div>
+
+
+      <div class="col-md-12 col-xs-12" id="show">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="text-center">No</th>
+              <th class="text-center">ID</th>
+              <th class="text-center">Task</th>
+              <th class="text-center">Driver</th>
+              <th class="text-center">Vehicle Details</th>
+              <th class="text-center">Customer</th>
+              <th class="text-center">Destination</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <% let no = 1%>
+          <% sjks.forEach(sjk=>{ %>
+          <tbody>
+            <tr>
+              <td class="text-center"><%= no %></td>
+              <td class="text-center"><%= sjk.id %></td>
+              <td style="text-transform: capitalize" nowrap><%= sjk.task %></td>
+              <td style="text-transform: capitalize" nowrap><%= sjk.User.first_name %> <%= sjk.User.last_name %></td>
+              <td style="text-transform: uppercase"><%= sjk.Vehicle.plat_no %>, KM <%= sjk.Vehicle.km %></td>
+              <td style="text-transform: capitalize" nowrap><%= sjk.Customer.name %></td>
+
+              <td style="text-transform: capitalize"><a href="<%= sjk.Customer.map %>" target="_blank" ><%= sjk.Customer.address %></a></td>
+              <td nowrap class="text-center"><a href="/sjk/sendemail/<%= sjk.id %>">Send</a> || <a href="/sjk/edit/<%= sjk.id %>">Edit</a> || <a href="/sjk/delete/<%= sjk.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+            </tr>
+          </tbody>
+          <% no++ })  %>
+          <!-- tampilkan semua data contacts -->
+
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- End Header -->
+
+  <section id="service">
+
+  </section>
+
+  <footer>
+    Copyright &copy 2017 - Faris n' Riski
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="/assets/js/jquery-3.2.1.slim.min.js"></script>
+  <script src="/assets/js/popper.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>
