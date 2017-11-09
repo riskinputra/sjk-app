@@ -17,11 +17,10 @@ function sendEmail(dest, rawMsg, cb){
 
   let subject = `[ORDER ID:${rawMsg.id} CUSTOMER: ${rawMsg.Customer.name}]`
   let messages = `
-  <html>
     <table border="1px solid black" width="100%">
       <thead>
         <tr>
-          <th colspan="2"><img src="sjk-logo.png" alt="sjk-logo" class="img-fluid"><h1>SURAT JALAN NO:${rawMsg.id}</h1></th>
+          <th colspan="2"><img src="http://sjkapp.herokuapp.com/assets/img/sjk-logo.png" alt="sjk-logo" class="img-fluid"><h1>SURAT JALAN NO:${rawMsg.id}</h1></th>
         </tr>
       <thead>
       <tbody>
@@ -43,7 +42,6 @@ function sendEmail(dest, rawMsg, cb){
         </tr>
       </tbody>
     <table>
-  </html>
   `;
 
   var mailOptions = {
