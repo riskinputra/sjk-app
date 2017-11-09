@@ -70,6 +70,23 @@
                 </td>
               </tr>
               <tr>
+                <td align="right">Status</td>
+                <td>
+                  <select class="" name="status">
+                    <% if(one.status == "process"){%>
+                      <option value="process" selected>process</option>
+                      <option value="finish">finish</option>
+                    <% }else if(one.status == "finish"){%>
+                      <option value="finish" selected>finish</option>
+                        <option value="process">process</option>
+                    <% }else{%>
+                      <option value="process">process</option>
+                      <option value="finish">finish</option>
+                    <% } %>
+                  </select>
+                </td>
+              </tr>
+              <tr>
                 <td class="text-center" colspan="2">
                   <input type="submit" class="btn btn-primary" value="Submit">
                   <a class="btn btn-danger" href="/sjk">Back</a>
