@@ -17,31 +17,34 @@ function sendEmail(dest, rawMsg, cb){
 
   let subject = `[ORDER ID:${rawMsg.id} CUSTOMER: ${rawMsg.Customer.name}]`
   let messages = `
-  <table style="border:1px solid black">
-    <thead>
-      <tr>
-        <th colspan="2">SURAT JALAN NO:${rawMsg.id}</th>
-      </tr>
-    <thead>
-    <tbody>
-      <tr>
-        <td align="right">No : </td>
-        <td>${rawMsg.id}</td>
-      </tr>
-      <tr>
-        <td align="right" nowrap>Customer Name : </td>
-        <td style="text-transform: capitalize">${rawMsg.Customer.name}</td>
-      </tr>
-      <tr>
-        <td align="right">Task : </td>
-        <td style="text-transform: capitalize">${rawMsg.task}</td>
-      </tr>
-      <tr>
-        <td align="right" style="text-transform: capitalize">Destination : </td>
-        <td><a href='${rawMsg.Customer.map}'>${rawMsg.Customer.address}</a></td>
-      </tr>
-    </tbody>
-  <table>`;
+  <html>
+    <table border="1px solid black" width="100%">
+      <thead>
+        <tr>
+          <th colspan="2"><img src="sjk-logo.png" alt="sjk-logo" class="img-fluid"><h1>SURAT JALAN NO:${rawMsg.id}</h1></th>
+        </tr>
+      <thead>
+      <tbody>
+        <tr>
+          <td align="right">No : </td>
+          <td>${rawMsg.id}</td>
+        </tr>
+        <tr>
+          <td align="right" nowrap>Customer Name : </td>
+          <td style="text-transform: capitalize">${rawMsg.Customer.name}</td>
+        </tr>
+        <tr>
+          <td align="right">Task : </td>
+          <td style="text-transform: capitalize">${rawMsg.task}</td>
+        </tr>
+        <tr>
+          <td align="right" style="text-transform: capitalize">Destination : </td>
+          <td><a href='${rawMsg.Customer.map}'>${rawMsg.Customer.address}</a></td>
+        </tr>
+      </tbody>
+    <table>
+  </html>
+  `;
 
   var mailOptions = {
     from: username,
