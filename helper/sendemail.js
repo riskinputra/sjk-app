@@ -20,7 +20,12 @@ function sendEmail(dest, rawMsg, cb){
     <table border="1px solid black" width="100%">
       <thead>
         <tr>
-          <th colspan="2"><img src="http://sjkapp.herokuapp.com/assets/img/sjk-logo.png" alt="sjk-logo" class="img-fluid"><h1>SURAT JALAN NO:${rawMsg.id}</h1></th>
+          <th>
+            <center>
+              <img src="http://sjkapp.herokuapp.com/assets/img/sjk-logo.png" alt="sjk-logo" class="img-fluid">
+            </center>
+          </th>
+          <th><h1>SURAT JALAN NO:${rawMsg.id}</h1></th>
         </tr>
       <thead>
       <tbody>
