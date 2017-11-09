@@ -1,0 +1,64 @@
+<%- include partial/head %>
+
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Menu -->
+    <%- include partial/menu %>
+  </header>
+
+  <div class="container" >
+    <div class="row" id="contacts">
+
+      <div class="col-md-12 col-xs-12" id="sub-title">
+        <h1 class="text-center"><%= title %></h1>
+        <p class="text-center"><a href="/customers/add">Add Customer</a></p>
+      </div>
+
+
+      <div class="col-md-12 col-xs-12" id="show">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="text-center">No</th>
+              <th class="text-center">ID</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Address</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <% let no = 1%>
+          <% rows.forEach(data=>{%>
+          <tbody>
+            <tr>
+              <td class="text-center"><%= no %></td>
+              <td class="text-center"><%= data.id %></td>
+              <td style="text-transform: capitalize" nowrap><%= data.name %></td>
+              <td style="text-transform: capitalize"><a href="<%= data.map %>" target="_blank" ><%= data.address %></a></td>
+              <td nowrap class="text-center"><a href="/customers/edit/<%= data.id %>">Edit</a> || <a href="/customers/delete/<%= data.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+            </tr>
+          </tbody>
+          <% no++ })  %>
+          <!-- tampilkan semua data contacts -->
+
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- End Header -->
+
+  <section id="service">
+
+  </section>
+
+  <footer>
+    Copyright &copy 2017 - Faris n' Riski
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="/assets/js/jquery-3.2.1.slim.min.js"></script>
+  <script src="/assets/js/popper.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>

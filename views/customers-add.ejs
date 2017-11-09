@@ -1,0 +1,60 @@
+<%- include partial/head %>
+
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Menu -->
+    <%- include partial/menu %>
+  </header>
+
+  <div class="container" >
+    <div class="row" id="contacts">
+
+      <div class="col-md-12 col-xs-12" id="sub-title">
+        <h1 class="text-center"><%= title %></h1>
+      </div>
+
+
+      <div class="col-md-12 col-xs-12" id="show">
+        <form method="post">
+          <table class="table">
+            <tr>
+              <td align="right">Name : </td>
+              <td><input type="text" name="name" class="form-control" placeholder="Masukkan Nama Customer" style="text-transform: capitalize"></td>
+            </tr>
+            <tr>
+              <td align="right">Address : </td>
+              <td>  <input type="text" name="address" class="form-control" placeholder="Masukkan Address" style="text-transform: capitalize"></td>
+            </tr>
+            <tr>
+              <td align="right">Map : </td>
+              <td><input type="text" name="map" class="form-control" placeholder="Masukkan Map"></td>
+            </tr>
+            <tr>
+              <td class="text-center" colspan="2" >
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <a class="btn btn-danger" href="/customers">Back</a>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Header -->
+
+  <section id="service">
+
+  </section>
+
+  <footer>
+    Copyright &copy 2017 - Faris n' Riski
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="/assets/js/jquery-3.2.1.slim.min.js"></script>
+  <script src="/assets/js/popper.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>

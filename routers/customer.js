@@ -6,12 +6,12 @@ const Model = require('../models/');
 const cekLogin = require('../helper/ceklogin')
 
 router.get('/', cekLogin, (req, res) => {
-  Model.Vehicle.findAll().then(dataVehicle => {
-      let dataV = {
-        title: 'Vehicle',
-        rows: dataVehicle
+  Model.Customer.findAll().then(dataCustomer => {
+      let dataC = {
+        title: 'Customer',
+        rows: dataCustomer
       }
-      res.render('vehicles', dataV)
+      res.render('customers', dataC)
     })
     .catch(err => {
       res.send(err)
@@ -19,15 +19,14 @@ router.get('/', cekLogin, (req, res) => {
 })
 
 router.get('/add', cekLogin, (req, res) => {
-  res.render('vehicles-add', {
-    title: 'Vehicles Add'
+  res.render('customers-add', {
+    title: 'Customers Add'
   })
 })
 
 router.post('/add', cekLogin, (req, res) => {
-  console.log(req.body.plat_no);
-  Model.Vehicle.create(req.body).then(dataVehicle => {
-      res.redirect('/vehicles');
+  Model.Customer.create(req.body).then(dataCustomer => {
+      res.redirect('/customers');
     })
     .catch(err => {
       res.send(err)
@@ -35,12 +34,12 @@ router.post('/add', cekLogin, (req, res) => {
 })
 
 router.get('/edit/:id', cekLogin, (req, res) => {
-  Model.Vehicle.findById(req.params.id).then(dataVehicle => {
-      let dataV = {
-        title: 'Vehicle Edit',
-        rows: dataVehicle
+  Model.Customer.findById(req.params.id).then(dataCustomer => {
+      let dataC = {
+        title: 'Customers Edit',
+        rows: dataCustomer
       }
-      res.render('vehicles-edit', dataV)
+      res.render('customers-edit', dataC)
     })
     .catch(err => {
       res.send(err)
@@ -48,12 +47,12 @@ router.get('/edit/:id', cekLogin, (req, res) => {
 })
 
 router.post('/edit/:id', cekLogin, (req, res) => {
-  Model.Vehicle.update(req.body, {
+  Model.Customer.update(req.body, {
       where: {
         id: req.body.id
       }
-    }).then(dataVehicle => {
-      res.redirect('/vehicles')
+    }).then(dataCustomer => {
+      res.redirect('/customers')
     })
     .catch(err => {
       res.send(err)
@@ -61,18 +60,16 @@ router.post('/edit/:id', cekLogin, (req, res) => {
 })
 
 router.get('/delete/:id', cekLogin, (req, res) => {
-  Model.Vehicle.destroy({
+  Model.Customer.destroy({
       where: {
         id: req.params.id
       }
-    }).then(dataVehicle => {
-      res.redirect('/vehicles')
+    }).then(dataCustomer => {
+      res.redirect('/customers')
     })
     .catch(err => {
       res.send(err)
     })
 })
-
-
 
 module.exports = router;
