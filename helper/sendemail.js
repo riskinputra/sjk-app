@@ -22,7 +22,7 @@ function sendEmail(dest, rawMsg, cb){
       <tr>
         <th>
           <center>
-            <img src="http://localhost:3000/assets/img/sjk-logo.png">
+            <img src="https://sjkapp.herokuapp.com/assets/img/sjk-logo.png">
           </center>
         </th>
         <th>SURAT JALAN NO:${rawMsg.id}</th>
