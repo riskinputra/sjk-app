@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     task: DataTypes.STRING,
     UserId: DataTypes.INTEGER,
     VehicleId: DataTypes.INTEGER,
-    CustomerId: DataTypes.INTEGER
+    CustomerId: DataTypes.INTEGER,
+    status: DataTypes.STRING
   });
   
   // Class Method

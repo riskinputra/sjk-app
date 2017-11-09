@@ -12,7 +12,8 @@ const sendEmail = require('../helper/sendemail')
 
 router.get('/', cekLogin, function (req, res) {
   Sjk.findAll({
-    include: [Vehicle, User, Customer]
+    include: [Vehicle, User, Customer],
+    order: [['createdAt', 'DESC']]
   })
   .then(sjks=>{
     res.render('sjk',{sjks: sjks, title:"Surat Jalan Kendaraan", msg:req.query.email})
@@ -103,16 +104,29 @@ router.get('/sendemail/:id', cekLogin, function (req, res) {
 
     // send email here
     sendEmail(dest, rawMsg, (info)=>{
-      // let success = info.match(/ok/gi).length;
-      let success = 1;
-      if(success==1){
-        res.redirect('/sjk'+'?email='+'ok')
-        // res.render('sjk',{sjks: sjks, msg: msg})
-      }else{
-        res.redirect('/sjk'+'?email='+info)
-        console.log(info);
-        // res.render('sjk',{sjks: sjks, msg: info})
+      
+      //update status jadi 'process'
+      let status = {
+        status: 'process'
       }
+      // console.log(status)
+      Sjk.update(status,{
+        where: {id: req.params.id}
+      })
+      .then(()=>{
+        // let success = info.match(/ok/gi).length;
+        let success = 1;
+        if(success==1){
+          res.redirect('/sjk'+'?email='+'ok')
+          // res.render('sjk',{sjks: sjks, msg: msg})
+        }else{
+          res.redirect('/sjk'+'?email='+info)
+          console.log(info);
+          // res.render('sjk',{sjks: sjks, msg: info})
+        }
+        
+      })
+      
     })
 
   })
