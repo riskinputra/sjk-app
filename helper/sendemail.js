@@ -17,10 +17,15 @@ function sendEmail(dest, rawMsg, cb){
 
   let subject = `[ORDER ID:${rawMsg.id} CUSTOMER: ${rawMsg.Customer.name}]`
   let messages = `
-  <table style="border:1px solid black">
+  <table border="1px solid black">
     <thead>
       <tr>
-        <th colspan="2">SURAT JALAN NO:${rawMsg.id}</th>
+        <th>
+          <center>
+            <img src="http://localhost:3000/assets/img/sjk-logo.png">
+          </center>
+        </th>
+        <th>SURAT JALAN NO:${rawMsg.id}</th>
       </tr>
     <thead>
     <tbody>
