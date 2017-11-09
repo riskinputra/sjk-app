@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser  = require('body-parser');
 
 const index   = require('./routers/index');
-
+const user    = require('./routers/user');
 
 const app = express();
 
@@ -15,6 +15,7 @@ app.set('view engine', 'ejs') // register the template engine
 
 // ------------ INDEX --------------
 app.use('/', index);
+app.use('/users', user);
 
 app.listen(3000, function() {
   console.log('Sudah Nyambung ....!!!');
