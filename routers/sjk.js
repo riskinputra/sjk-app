@@ -103,7 +103,8 @@ router.get('/sendemail/:id', cekLogin, function (req, res) {
 
     // send email here
     sendEmail(dest, rawMsg, (info)=>{
-      let success = info.match(/ok/gi).length;
+      // let success = info.match(/ok/gi).length;
+      let success = 1;
       if(success==1){
         res.redirect('/sjk'+'?email='+'ok')
         // res.render('sjk',{sjks: sjks, msg: msg})
